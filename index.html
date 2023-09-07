@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Gothic+A1&family=Montserrat&family=Nanum+Gothic:wght@700&family=Noto+Sans+KR:wght@400;500;700;900&family=Roboto&family=Urbanist&display=swap"
       rel="stylesheet">
   
-    <title>Lab-1</title>
+    <title>계산기 만들기</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,38 +18,38 @@
       <div class="wrapper">
         <div class="cal">
           <div class="cal-header">
-             <div class="cal-previous-preview"></div>
-             <div class="cal-currnet-preview"></div>
+             <div data-previous-preview class="cal-previous-preview"></div>
+             <div data-currnet-preview class="cal-currnet-preview"></div>
           </div>
         </div>
         <div class="cal-body">
           <div class="cal-space">
-            <button class="space-2">AC</button>
-            <button>DEL</button>
-            <button>÷</button>
+            <button data-btn-reset class="space-2">AC</button>
+            <button data-btn-delete>DEL</button>
+            <button data-btn-divide data-btn-opration>÷</button>
           </div>
           <div class="cal-space">
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>*</button>
+            <button data-btn-bumber>1</button>
+            <button data-btn-bumber>2</button>
+            <button data-btn-bumber>3</button>
+            <button data-btn-multiply data-btn-opration>*</button>
           </div>
           <div class="cal-space">
             <button>4</button>
             <button>5</button>
             <button>6</button>
-            <button>-</button>
+            <button data-btn-minus data-btn-opration>-</button>
           </div>
           <div class="cal-space">
             <button>7</button>
             <button>8</button>
             <button>9</button>
-            <button>+</button>
+            <button data-btn-plus data-btn-opration>+</button>
           </div>
           <div class="cal-space">
             <button>.</button>
             <button>0</button>
-            <button class="space-2">=</button>
+            <button data-btn-equal data-btn-opration class="space-2">=</button>
           </div>
         </div>
       </div>  
