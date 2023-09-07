@@ -9,14 +9,20 @@ class Calculator {
     }
 
     onPressNumber(number) {
-        // TODO: 벨리데이션 처리 
-        // if () {}
+        // 이전에 숫자를 입력하지 않고 .을 먼저 입력한 경우
+        if (number === '.' && this.$currentPreview.textContent.length < 1) {
+            return
+        }
+
         this.$currentPreview.textContent += number
     }
 
     onPressOperation(operation) {
-        // TODO: 벨리데이션 처리 
-        // if () {}
+        // 이전에 숫자를 입력하지 않고 연산 기호를 쓰는 경우
+        if (this.$currentPreview.textContent.length < 1) {
+            return
+        }
+
         this.$previousPreview.textContent = `${this.$currentPreview.textContent} ${operation}`
         this.$currentPreview.textContent = ''
     }
