@@ -98,6 +98,12 @@ class Calculator {
         this.previousOperation = ""
         this.currntOperation = ""
     }
+    
+    onDelete() {
+        if (this.$currentPreview.textContent.length > 0) {
+            this.$currentPreview.textContent = this.$currentPreview.textContent.slice(0, -1)
+        }
+    }
 }
 
 // 값 표시
@@ -117,6 +123,7 @@ const $operations = document.querySelectorAll("[data-btn-operation]")
 
 // 리셋, 삭제
 const $reset = document.querySelector("[data-btn-reset]")
+const $delete = document.querySelector("[data-btn-delete]")
 
 const calculator = new Calculator($previousPreview, $currentPreview)
 
@@ -154,3 +161,4 @@ $operations.forEach((operation) => {
     
 })
 $reset.addEventListener("click", (e) => calculator.onReset())
+$delete.addEventListener("click", (e) => calculator.onDelete())
