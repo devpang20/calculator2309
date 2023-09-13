@@ -2,6 +2,8 @@ class Calculator {
     $previousPreview
     $currentPreview
     // 연산 관련 변수 추가
+    previousOperation = ""
+    currntOperation = ""
 
     constructor($previousPreview, $currentPreview) {
         this.$previousPreview = $previousPreview
@@ -23,8 +25,71 @@ class Calculator {
             return
         }
 
+        this.previousOperation = operation
         this.$previousPreview.textContent = `${this.$currentPreview.textContent} ${operation}`
         this.$currentPreview.textContent = ''
+    }
+
+    onEqual() {
+        // 연산에 관련된 데이터가 모두 존재하는지
+        if (
+            this.$currentPreview.textContent.length > 0 &&
+            this.$previousPreview.textContent.length > 0 &&
+            this.previousOperation.length > 0
+        ) {
+            let result = 0
+
+            switch (this.previousOperation) {
+                case "+":
+                    result = this.hadlePlus()
+                    break
+                case "-":
+                    result = this.hadleMinus()
+                    break
+                case "×":
+                    result = this.hadleMultiply()
+                    break
+                case "÷":
+                    result = this.hadleDivide()
+                    break
+                default:
+                    break
+
+            }
+
+            this.$currentPreview.textContent = result.toString()
+            this.$previousPreview.textContent = ""
+            this.currntOperation = ""
+        }
+    }
+
+
+    hadlePlus() {
+        return (
+            +this.$previousPreview.textContent.split(" ")[0] + 
+            +this.$currentPreview.textContent
+        )
+    }
+
+    hadleMinus() {
+        return (
+            +this.$previousPreview.textContent.split(" ")[0] - 
+            +this.$currentPreview.textContent
+        )
+    }
+
+    hadleMultiply() {
+        return (
+            +this.$previousPreview.textContent.split(" ")[0] * 
+            +this.$currentPreview.textContent
+        )
+    }
+
+    hadleDivide() {
+        return (
+            +this.$previousPreview.textContent.split(" ")[0] / 
+            +this.$currentPreview.textContent
+        )
     }
 }
 
@@ -71,7 +136,7 @@ $operations.forEach((operation) => {
              calculator.onPressOperation("÷")
              break
             case $equal: 
-             calculator.onPressOperation()
+             calculator.onEqual()
              break
             default: 
              break

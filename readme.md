@@ -8,6 +8,6 @@
 - [x] 숫자 버튼 기능(onPressNumber) 구현
 - [x] 사칙연산 버튼 기능(onPressOperation) 구현
 - [x] onPressNumber, onPressOperation 1차 벨리데이션
-- [ ] onEqual 기능 구현
+- [x] onEqual 기능 구현
 - [ ] onReset 기능 구현
 - [ ] onDelete 기능 구현
