@@ -91,6 +91,13 @@ class Calculator {
             +this.$currentPreview.textContent
         )
     }
+
+    onReset() {
+        this.$currentPreview.textContent = ""
+        this.$previousPreview.textContent = ""
+        this.previousOperation = ""
+        this.currntOperation = ""
+    }
 }
 
 // 값 표시
@@ -108,6 +115,8 @@ const $equal = document.querySelector("[data-btn-equal]")
 const $numbers = document.querySelectorAll("[data-btn-number]")
 const $operations = document.querySelectorAll("[data-btn-operation]")
 
+// 리셋, 삭제
+const $reset = document.querySelector("[data-btn-reset]")
 
 const calculator = new Calculator($previousPreview, $currentPreview)
 
@@ -144,3 +153,4 @@ $operations.forEach((operation) => {
     })
     
 })
+$reset.addEventListener("click", (e) => calculator.onReset())
